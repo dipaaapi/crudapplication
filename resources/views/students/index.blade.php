@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 text-center mx-auto">
                 <div class="card">
                     <div class="card-header">
                         <h2>Laravel 9 Crud</h2>
@@ -17,20 +17,18 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Mobile</th>
-                                        <th>Actions</th>
+                                        @foreach ($title as $titled )
+                                            <th>{{ $titled }}</th>
+                                        @endforeach
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($students as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->mobile }}</td>
+                                        <td class="text-capitalize">{{ $loop->iteration }}</td>
+                                        <td class="text-capitalize">{{ $item->name }}</td>
+                                        <td class="text-capitalize">{{ $item->address }}</td>
+                                        <td class="">{{ $item->mobile }}</td>
                                         <td>
                                             <a href="{{ url('/student/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
