@@ -8,7 +8,9 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view ('students.index')->with('students', $students);
+        return view ('students.index')
+            ->with('title', ['#', 'Name', 'Address', 'Mobile', 'Action'])
+            ->with('students', $students);
     }
 
     public function create()
